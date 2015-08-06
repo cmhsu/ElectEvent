@@ -15,7 +15,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('home');
   $stateProvider.state('home', {
     url: '/',
-    templateUrl: '../views/eventFeed.html'
+    templateUrl: '../views/eventFeed.html',
+    controller: 'eventFeedCtrl'
   })
     .state('myGroups', {
       url: '/myGroups',
