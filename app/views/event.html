@@ -1,0 +1,13 @@
+<div ng-controller="EventController">
+  <!-- event name -->
+  <h1>{{ eventName }}</h1>
+  <!-- description -->
+  <p>{{ eventDescription }}</p>
+  <!-- likes -->
+  <p class="likes">{{ likes }}</p>
+  <!-- comment form -->
+  <input type="text" placeholder="Add comment...">
+  <input type="submit" value="Submit">
+  <!-- comments -->
+  <div ng-repeat="comment in comments">{{ comment }}</div>
+</div>
