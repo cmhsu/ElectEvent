@@ -1,6 +1,14 @@
 angular
   .module('stationarySalmonBestSalmonApp')
-  .controller('eventFeedCtrl', ['$scope', 'EventsService', function($scope, EventsService) {
-    $scope.test = 'hi';
-    EventsService.get($scope);
+  .controller('eventFeedCtrl', ['$scope', 'EventsService', '$location', function($scope, EventsService, $location) {
+    EventsService.get().then(function(data) {
+      $scope.events = data;
+    });
+
+    $scope.selectEvent = function(event) {
+      var id = event.id;
+      $location.path('/event/' + id);
+    };
   }]);
+
+

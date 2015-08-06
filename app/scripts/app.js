@@ -12,7 +12,7 @@ var app  = angular
   .module('stationarySalmonBestSalmonApp', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('home');
+  $urlRouterProvider.otherwise('/');
   $stateProvider.state('home', {
     url: '/',
     templateUrl: '../views/eventFeed.html',
@@ -23,7 +23,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '../views/myGroups.html'
     })
     .state('event', {
-      url: '/event',
+      url: '/event/:id',
       templateUrl: '../views/event.html'
     })
     .state('login', {
@@ -33,5 +33,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('signup', {
       url: '/signup',
       templateUrl: '../views/signup.html'
-    })
+    });
 });
+
