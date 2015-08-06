@@ -2,19 +2,19 @@ var mongoose = require('mongoose');
 
 var CommentSchema = new mongoose.Schema({
   creator: {
-    type: ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
   content: {
     type: String
   },
   event: { 
-      type : ObjectId, 
+      type : mongoose.Schema.Types.ObjectId, 
       ref: 'Event' 
     }
 });
 
-var Comment = mongoose.model('Comment', EntitiesSchema);
+var Comment = mongoose.model('Comment', CommentSchema);
 
 module.exports = Comment;
 
