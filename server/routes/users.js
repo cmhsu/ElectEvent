@@ -12,13 +12,10 @@ router.get('/', function(req, res) {
 
 // Expect to receive an object like:
 // {
-//   "title": "Event Title",
-//   "group_id": "## group_id from group that the post was submitted from (String) ##",
-//   "description": "A great thing to do",
-//   "user_id": "## user_id from current session (String) ##"
+//     "username": "andrew"
 // }
 
-// Sample ID for test: andrew - 55c2c88b073498c8a750918f
+// 55c3b0f7260e1c7acfa096ee
 
 router.post('/', function(req, res) {
 
