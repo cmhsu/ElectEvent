@@ -1,13 +1,11 @@
 var express     = require('express');
 var router = express.Router();
-var Event = require('./../db/Event');
 var User = require('./../db/User');
-var Group = require('./../db/Group');
 
-// Return all events
+// Return users
 router.get('/', function(req, res) {
-  Event.find({}).populate('creator').exec(function(err, events){
-    res.json(events);
+  User.find({}).exec(function(err, users){
+    res.json(users);
   });
     
 });
@@ -19,19 +17,18 @@ router.get('/', function(req, res) {
 //   "description": "A great thing to do",
 //   "user_id": "## user_id from current session (String) ##"
 // }
+
+// Sample ID for test: andrew - 55c2c88b073498c8a750918f
+
 router.post('/', function(req, res) {
 
   var data = req.body;
 
-  var addEvent = Event.create({
-    title: data.title,
-    creator: data.user_id,
-    //group: data.group_id,
-    description: data.description,
-    votes: 0
-  },
-  function(err, newEvent){
-    res.send(newEvent);
+  var addUser = User.create({
+    username: data.username
+  }, 
+  function(err, newUser){
+    res.send(newUser);
   });
 
 });
