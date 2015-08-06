@@ -1,8 +1,7 @@
-angular.module('app.event', [])
-  .controller('EventController', ['$scope', 'EventService', '$routeParams', function($scope, EventService, $routeParams) {
-    EventService.get($routeParams.id).then(function(data) {    
+app.controller('EventController', ['$scope', 'EventService', '$stateParams', function($scope, EventService, $stateParams) {
+    EventService.get($stateParams.id).then(function(data) {    
       $scope.eventName = data.title;
-      $scope.group = data.groups.groupname;
+      $scope.group = data.group.groupname;
       $scope.creator = data.creator.username;
       $scope.eventDescription = data.description;
       $scope.votes = data.vote;
