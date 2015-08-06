@@ -14,9 +14,11 @@ router.get('/', function(req, res) {
 
 // Expect a POST object like:
 // {
-//   groupname: NAME_OF_GROUP,
-//   user_id: ID of user associated with group's creation
+//   "groupname": "Best Group",
+//   "user_id": "55c3b0f7260e1c7acfa096ee"   // user_id is the id of group creator
 // }
+
+// 55c3b14b0ae922f4cfd97dac
 
 // on group create, add that group id to the user's groups array property
 router.post('/', function(req, res) {
