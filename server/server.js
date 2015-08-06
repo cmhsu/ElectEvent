@@ -12,7 +12,7 @@ var User        = require('./db/User');
 // Load routes
 var eventsRoute = require('./routes/events');
 var usersRoute = require('./routes/users');
-var usersRoute = require('./routes/groups');
+var groupsRoute = require('./routes/groups');
 var commentsRoute = require('./routes/comments');
 
 var app = express();
@@ -25,8 +25,8 @@ app.use(bodyParser.json());
 // Define routes
 app.use('/api/events', eventsRoute);
 app.use('/api/users', usersRoute);
-app.use('/api/groups', usersRoute);
-app.use('/api/comments', usersRoute);
+app.use('/api/groups', groupsRoute);
+app.use('/api/comments', commentsRoute);
 
 app.listen(8000, function(){
   console.log("Listening on Port 8000");

@@ -6,7 +6,7 @@ var Group = require('./../db/Group');
 
 // Return all events
 router.get('/', function(req, res) {
-  Event.find({}).populate('creator').exec(function(err, events){
+  Event.find({}).populate('group').populate('creator').exec(function(err, events){
     res.json(events);
   });
     
@@ -26,7 +26,7 @@ router.post('/', function(req, res) {
   var addEvent = Event.create({
     title: data.title,
     creator: data.user_id,
-    //group: data.group_id,
+    group: data.group_id,
     description: data.description,
     votes: 0
   },
