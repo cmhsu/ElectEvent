@@ -6,16 +6,16 @@ var GroupSchema = new mongoose.Schema({
     required: true
   },
   events: [{ 
-      type : ObjectId, 
+      type : mongoose.Schema.Types.ObjectId, 
       ref: 'Event' 
     }],
   members: [{ 
-      type : ObjectId, 
+      type : mongoose.Schema.Types.ObjectId, 
       ref: 'User' 
     }]
 });
 
-var Group = mongoose.model('Group', EntitiesSchema);
+var Group = mongoose.model('Group', GroupSchema);
 
 module.exports = Group;
 

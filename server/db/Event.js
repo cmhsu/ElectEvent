@@ -6,23 +6,23 @@ var EventSchema = new mongoose.Schema({
     required: true
   },
   group: {
-    type: ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Group'
   },
   description: {
     type: String
   },
   comments: [{ 
-    type : ObjectId, 
+    type : mongoose.Schema.Types.ObjectId, 
     ref: 'Comment' 
   }],
   creator: {
-    type: ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }
 });
 
-var Event = mongoose.model('Event', EntitiesSchema);
+var Event = mongoose.model('Event', EventSchema);
 
 module.exports = Event;
 

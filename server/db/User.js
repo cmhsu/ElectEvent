@@ -6,11 +6,11 @@ var UserSchema = new mongoose.Schema({
     required: true
   },
   groups: [{ 
-      type : ObjectId, 
+      type : mongoose.Schema.Types.ObjectId, 
       ref: 'Group' 
     }]
 });
 
-var User = mongoose.model('User', EntitiesSchema);
+var User = mongoose.model('User', UserSchema);
 
 module.exports = User;
