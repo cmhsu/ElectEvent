@@ -4,7 +4,8 @@ var Comment = require('./../db/Comment');
 var User = require('./../db/User');
 
 router.get('/', function(req, res) {
-  Comment.find({}).exec(function(err, comments){
+  Comment.find({}).populate('creator').populate('event')
+  .exec(function(err, comments){
     res.json(comments);
   });
     
@@ -27,7 +28,16 @@ router.post('/', function(req, res) {
     event: data.event_id
   }, 
   function(err, newComment){
-    res.send(newComment);
+    
+    // Add the comment_id to the comments array in the events model
+    Event.findById(event_id, function(err, event){
+      event.comments.push(newComment._id);
+
+      event.save(function(err){
+        //Saved!
+        res.send(newComment);
+      });
+    });
   });
 
 });
