@@ -1,3 +1,52 @@
+### Page Structure
+
+#####Page structure will conform to HTML5 tag semantics.
+
+*References:* 
+[http://learn.shayhowe.com/html-css/getting-to-know-html/]Shay Howe's Getting to Know HTML
+[http://www.smashingmagazine.com/2013/01/the-importance-of-sections/]Smashing Magazine: The Importance of Sections
+
+Thus far, the article tag should not be used, reason being, there is no guarantee that the content can be independently redistributed or syndicated.
+
+####Comment (singular)
+
+* Each comment should be wrapped in an individual div. 
+* Each div should contain a class "comment". 
+* Given the nature of angular, when displaying comments ng-repeat should be used.
+
+      ```javascript
+      <div class="comment"></div>
+      ```
+
+####Comments (plural)
+
+* Collections of comment divs should be contained within a section tag with a class comments.
+
+      ```javascript
+      <section class="comments">
+      ```
+
+####Page headers
+
+* Page headers should use h1 (for now). We will add classes later.
+
+####Forms:
+
+####Submit Action
+* The button tag will not be used for form submission. 
+* Instead the input tag will be used with type "submit" and value "Submit" (capital "S"). 
+
+      ```javascript
+      <input type="submit" value="Submit">
+      ```
+
+####Event description
+* Event descriptions will be wrapped in a section tag. The text will use a p tag with a class of "description".
+
+      ```javascript
+      <p class="description">
+      ```
+
 ### Indentation
 
 When writing any block of code that is logically subordinate to the line immediately before and after it, that block should be indented two spaces more than the surrounding lines
