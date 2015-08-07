@@ -1,10 +1,9 @@
 //username. groups
 app
   .controller('userCtrl', ['$scope', 'UserService', '$location', '$stateParams', function($scope, UserService, $location, $stateParams) {
-    UserService.get($stateParams.id).then(function(data) {
-      console.log(data, ' data');
+    UserService.get($stateParams.id).then(function(response) {
+      var data = response.data;
       $scope.username = data.username;
-      console.log(data.groups);
       $scope.groups = data.groups;
     });
 

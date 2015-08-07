@@ -1,7 +1,7 @@
 <h1>User View</h1>
 
-{{username}}
+Username: {{username}}
 
 <div ng-repeat="group in groups" ui-sref="group({id: group._id})">
-  <div>{{group}}</div>
+  <div>Groupnames: {{group.groupname}}</div>
 </div>
