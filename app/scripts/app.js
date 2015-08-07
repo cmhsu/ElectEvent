@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name stationarySalmonBestSalmonApp
+ * @name app
  * @description
  * # stationarySalmonBestSalmonApp
  *
  * Main module of the application.
  */
 var app  = angular
-  .module('stationarySalmonBestSalmonApp', ['ui.router']);
+  .module('app', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
