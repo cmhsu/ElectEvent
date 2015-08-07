@@ -4,13 +4,14 @@ var User = require('./../db/User');
 
 // Return users
 router.get('/', function(req, res) {
-  User.find({}).populate('groups').exec(function(err, users){
+  User.find({}).populate('groups').populate('events')
+  .exec(function(err, users){
     res.json(users);
   });
     
 });
 
-// Expect to receive an object like:
+// Expect POST object like:
 // {
 //     "username": "andrew"
 // }

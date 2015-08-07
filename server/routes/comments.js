@@ -4,7 +4,6 @@ var Comment = require('./../db/Comment');
 var Event = require('./../db/Event');
 var User = require('./../db/User');
 
-
 //Will return an array of comment models
 router.get('/', function(req, res) {
   Comment.find({}).populate('creator').populate('event')
@@ -14,7 +13,7 @@ router.get('/', function(req, res) {
     
 });
 
-// Expect to receive a post object like:
+// Expect POST object like:
 // {
 //   content: "Comment text",
 //   user_id: 55c3b0f7260e1c7acfa096ee // ID of the user posting the comment
@@ -31,7 +30,6 @@ router.post('/', function(req, res) {
     event: data.event_id
   }, 
   function(err, newComment){
-    
     // Add the comment_id to the comments array in the events model
     Event.findById(data.event_id, function(err, event){
       
