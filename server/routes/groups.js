@@ -12,6 +12,15 @@ router.get('/', function(req, res) {
   }); 
 });
 
+// Return specific group by ID
+
+router.get('/:id', function(req, res){
+  var group_id = req.params.id;
+  Group.findById(group_id, function(err, group){
+    res.send(group);
+  });
+});
+
 // Expect a POST object like:
 // {
 //   "groupname": "Best Group",
