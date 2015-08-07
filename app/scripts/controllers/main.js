@@ -9,5 +9,5 @@
  */
 angular.module('stationarySalmonBestSalmonApp')
   .controller('MainCtrl', function () {
-  
+
   });

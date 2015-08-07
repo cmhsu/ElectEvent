@@ -1,0 +1,13 @@
+<section>
+  <h1>Event Feed</h1>
+  <div ng-repeat="event in events" ng-click="selectEvent(event)">
+    <div>ID: {{event.id}}</div>
+    <div>Title: {{event.title}}</div>
+    <div>Group: {{event.group}}</div>
+    <div>Description: {{event.description}}</div>
+    <div>Comments: {{event.comments}}</div>
+    <div>Creator: {{event.creator}}</div>
+    <div>Votes: {{event.votes}}</div>
+    <br>
+  </div>
+</section>

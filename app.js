@@ -63,7 +63,7 @@ app.post('/api/events', function (req, res, next) {
 
 app.get('/api/groups', function (req, res, next) {
 
-  var sampleGroups = [  
+  var sampleGroups = [
     {
       "id": 1,
       "groupname": "Best Group",
