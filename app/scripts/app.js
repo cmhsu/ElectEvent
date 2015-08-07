@@ -13,14 +13,21 @@ var app  = angular
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
-  $stateProvider.state('home', {
-    url: '/',
-    templateUrl: '../views/eventFeed.html',
-    controller: 'eventFeedCtrl'
-  })
-    .state('myGroups', {
-      url: '/myGroups',
-      templateUrl: '../views/myGroups.html'
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: '../views/eventFeed.html',
+      controller: 'eventFeedCtrl'
+    })
+    .state('myGroups', { // might need to change this
+      url: '/group',
+      templateUrl: '../views/myGroups.html',
+      controller: 'myGroupsCtrl'
+    })
+    .state('group', {
+      url: '/group/:id',
+      templateUrl: '../views/group.html',
+      controller: 'groupCtrl'
     })
     .state('event', {
       url: '/event/:id',

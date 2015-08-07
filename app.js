@@ -65,13 +65,13 @@ app.get('/api/groups', function (req, res, next) {
 
   var sampleGroups = [
     {
-      "id": 1,
+      "_id": 1,
       "groupname": "Best Group",
       "events": ["event_id1", "event_id2"],
       "members": ["user_id1", "user_id2"]
     },
     {
-      "id": 1,
+      "_id": 2,
       "groupname": "Bestester Group",
       "events": ["event_id1", "event_id2"],
       "members": ["user_id1", "user_id2"]

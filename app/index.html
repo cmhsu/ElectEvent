@@ -12,6 +12,11 @@
 </head>
 <body ng-app="stationarySalmonBestSalmonApp">
 
+<div>
+  <a ui-sref="home">Event Feed</a>
+  <a ui-sref="myGroups">myGroups</a>
+</div>
+
 <div ui-view></div>
 
 <!--<div class="footer">-->
@@ -27,8 +32,11 @@
 <!-- App Scripts -->
 
 <script src="scripts/app.js"></script>
+<script src="scripts/services/groupService.js"></script>
 <script src="scripts/services/eventsService.js"></script>
 <script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/myGroupsCtrl.js"></script>
 <script src="scripts/controllers/eventFeedCtrl.js"></script>
+<script src="scripts/controllers/groupCtrl.js"></script>
 </body>
 </html>

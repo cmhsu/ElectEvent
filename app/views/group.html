@@ -1,0 +1,15 @@
+<section>
+  <div>{{groupname}}</div>
+  <div ng-repeat="event in events">
+    <div>{{event.title}}</div>
+    <p>{{event.description}}</p>
+    <i>{{event.author}}</i>
+    <div ng-repeat="comment in event.comments">
+      <i>{{comment.creator}}</i>
+      <p>{{comment.content}}</p>
+    </div>
+  </div>
+  <div ng-repeat="member in members">
+    <p>{{member.username}}</p>
+  </div>
+</section>
