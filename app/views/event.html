@@ -14,9 +14,11 @@
   <input type="submit" value="Submit">
   <!-- comments -->
   <section class="comments">
+
     <div class="comment" ng-repeat="comment in comments">
       <span class="username">{{ comment.creator.username }}</span>
       <span class="content">{{ comment.content }}</span>
     </div>
+
   </section>
 </div>
