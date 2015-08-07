@@ -19,7 +19,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '../views/eventFeed.html',
       controller: 'eventFeedCtrl'
     })
-    .state('myGroups', { // might need to change this
+    .state('myGroups', {
       url: '/group',
       templateUrl: '../views/myGroups.html',
       controller: 'myGroupsCtrl'
