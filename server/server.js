@@ -10,9 +10,9 @@ var Group       = require('./db/Group');
 var User        = require('./db/User');
 
 // Load routes
-var eventsRoute = require('./routes/events');
-var usersRoute = require('./routes/users');
-var groupsRoute = require('./routes/groups');
+var eventsRoute   = require('./routes/events');
+var usersRoute    = require('./routes/users');
+var groupsRoute   = require('./routes/groups');
 var commentsRoute = require('./routes/comments');
 
 var app = express();

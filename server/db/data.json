@@ -1,0 +1,40 @@
+{
+    "users": {
+        "_model": "User",
+        "user1": {
+            "username": "Andrew"
+        },
+        "user2": {
+            "username": "Mychael"
+        },
+        "user3": {
+            "username": "Sara"
+        },
+        "user4": {
+            "username": "Corey"
+        }
+    },
+    "groups":{
+        "_model": "Group",
+        "group1": {
+          "groupname": "Special Group",
+          "members": ["->users.user1","->users.user2","->users.user3","->users.user4"]
+        }
+    },
+    "events":{
+        "_model": "Event",
+        "event1": {
+          "title": "Go to the Beach",
+          "group": "->groups.group1",
+          "creator":"->users.user2"
+        } 
+    },
+    "comments":{
+        "_model": "Comment",
+        "comment1": {
+            "content": "Sounds great! Let's go.",
+            "event": "->events.event1",
+            "creator":"->users.user4"
+        }
+    }
+}
