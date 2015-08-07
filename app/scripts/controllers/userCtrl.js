@@ -5,6 +5,5 @@ app
       $scope.username = data.username;
       $scope.groups = data.groups;
     });
-
   }]);
 
