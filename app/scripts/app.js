@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc overview
- * @name stationarySalmonBestSalmonApp
+ * @name app
  * @description
  * # stationarySalmonBestSalmonApp
  *
@@ -32,6 +32,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('event', {
       url: '/event/:id',
       templateUrl: '../views/event.html'
+    })
+    .state('user', {
+      url: '/user/:id',
+      templateUrl: '../views/user.html',
+      controller: 'userCtrl'
     })
     .state('login', {
       url: '/login',

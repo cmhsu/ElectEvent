@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the stationarySalmonBestSalmonApp
  */
-angular.module('stationarySalmonBestSalmonApp')
+app
   .controller('MainCtrl', function () {
 
   });

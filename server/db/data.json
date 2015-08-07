@@ -26,8 +26,9 @@
         "event1": {
           "title": "Go to the Beach",
           "group": "->groups.group1",
+          "description": "A fun BBQ at the beach.",
           "creator":"->users.user2"
-        } 
+        }
     },
     "comments":{
         "_model": "Comment",

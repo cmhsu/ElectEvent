@@ -82,7 +82,7 @@ Events Route
 
   /api/events
 
-  GET Sample: 
+  GET Sample:
   [
     {
       "_id": "55c3f69e3d32a04be7c05f93",
@@ -157,5 +157,5 @@ Comments Route:
   {
     "content": "NO WAY! HATE BEACH! Why did I suggest this?",
     "user_id": "55c3f6683d32a04be7c05f91", // ID of user posting the comment
-    "event_id": "55c3f69e3d32a04be7c05f93" // ID of user posting 
+    "event_id": "55c3f69e3d32a04be7c05f93" // ID of user posting
   }

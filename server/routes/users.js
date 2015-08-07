@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
   .exec(function(err, users){
     res.json(users);
   });
-    
+
 });
 
 
@@ -52,7 +52,7 @@ router.post('/', function(req, res) {
 
   var addUser = User.create({
     username: data.username
-  }, 
+  },
   function(err, newUser){
     res.send(newUser);
   });

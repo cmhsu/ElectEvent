@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
   .exec(function(err, events){
     res.json(events);
   });
-    
+
 });
 
 // Return specific event by ID
