@@ -12,6 +12,15 @@ router.get('/', function(req, res) {
     
 });
 
+// Return specific event by ID
+
+router.get('/:id', function(req, res){
+  var event_id = req.params.id;
+  Event.findById(event_id, function(err, event){
+    res.send(event);
+  });
+});
+
 // Expect POST object like:
 // {
 //   "title": "Go to the Beach!!",

@@ -11,6 +11,15 @@ router.get('/', function(req, res) {
     
 });
 
+// Return specific user by ID
+
+router.get('/:id', function(req, res){
+  var user_id = req.params.id;
+  User.findById(user_id, function(err, user){
+    res.send(user);
+  });
+});
+
 // Expect POST object like:
 // {
 //     "username": "andrew"
