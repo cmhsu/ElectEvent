@@ -16,12 +16,12 @@ app.post('/', function (req, res, next) {
 app.get('/api/users', function (req, res, next) {
   var sampleUsers = [
     {
-      "id": 1,
+      "_id": 1,
       "username": "SAMPLE_NAME",
-      "groups": ["group_id1", "groupid2"]
+      "groups": ["group_id1", "g1roupid2"]
     },
     {
-      "id": 2,
+      "_id": 2,
       "username": "SAMPLE_NAME_2",
       "groups": ["group_id1", "groupid2"]
     }
@@ -36,7 +36,7 @@ app.post('/api/users', function (req, res, next) {
 app.get('/api/events', function (req, res, next) {
   var sampleEvents = [
     {
-      "id": 1,
+      "_id": 1,
       "title": "An Event",
       "group": "group id",
       "description": "A great thing to do",
@@ -45,7 +45,7 @@ app.get('/api/events', function (req, res, next) {
       "votes": 0
     },
     {
-      "id": 2,
+      "_id": 2,
       "title": "Another Title",
       "group": "group id",
       "description": "A better thing to do",
@@ -90,13 +90,13 @@ app.post('/api/groups', function (req, res, next) {
 app.get('/api/comments', function (req, res, next) {
   var sampleComments =    [
     {
-      "id": 1,
+      "_id": 1,
       "creator": "user_id",
       "content": "Some text",
       "event": "event_id"
     },
     {
-      "id": 2,
+      "_id": 2,
       "creator": "user_id",
       "content": "Moar text",
       "event": "event_id"

@@ -4,10 +4,10 @@ app
       $scope.events = data;
     });
 
-    $scope.selectEvent = function(event) {
-      var id = event.id;
-      $location.path('/event/' + id);
-    };
+    //$scope.selectEvent = function(event) {
+    //  var id = event.id;
+    //  $location.path('/event/' + id);
+    //};
   }]);
 
 

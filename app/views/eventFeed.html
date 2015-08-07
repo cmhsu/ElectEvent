@@ -1,6 +1,6 @@
 <section>
   <h1>Event Feed</h1>
-  <div ng-repeat="event in events" ng-click="selectEvent(event)">
+  <div ng-repeat="event in events" ui-sref="event({id: event._id})">
     <div>Title: {{event.title}}</div>
     <div>Group: {{event.group.groupname}}</div>
     <div>Description: {{event.description}}</div>

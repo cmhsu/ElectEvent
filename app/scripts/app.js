@@ -33,6 +33,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/event/:id',
       templateUrl: '../views/event.html'
     })
+    .state('user', {
+      url: '/user/:id',
+      templateUrl: '../views/user.html',
+      controller: 'userCtrl'
+    })
     .state('login', {
       url: '/login',
       templateUrl: '../views/login.html'
