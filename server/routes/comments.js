@@ -1,8 +1,8 @@
 var express     = require('express');
-var router = express.Router();
-var Comment = require('./../db/Comment');
-var Event = require('./../db/Event');
-var User = require('./../db/User');
+var router      = express.Router();
+var Comment     = require('./../db/Comment');
+var Event       = require('./../db/Event');
+var User        = require('./../db/User');
 
 //Will return an array of comment models
 router.get('/', function(req, res) {
@@ -15,10 +15,12 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res){
   var comment_id = req.params.id;
-  Comment.findById(comment_id, function(err, comment){
+  Comment.findById(comment_id).populate('creator').populate('event')
+  .exec(function(err, comment){
     res.send(comment);
   });
 });
+
 // Expect POST object like:
 // {
 //   content: "Comment text",

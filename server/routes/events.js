@@ -1,8 +1,9 @@
-var express     = require('express');
-var router = express.Router();
-var Event = require('./../db/Event');
-var User = require('./../db/User');
-var Group = require('./../db/Group');
+var express    = require('express');
+var router     = express.Router();
+
+var Event      = require('./../db/Event');
+var User       = require('./../db/User');
+var Group      = require('./../db/Group');
 
 // Return all events
 router.get('/', function(req, res) {
@@ -14,10 +15,10 @@ router.get('/', function(req, res) {
 });
 
 // Return specific event by ID
-
 router.get('/:id', function(req, res){
   var event_id = req.params.id;
-  Event.findById(event_id, function(err, event){
+  Event.findById(event_id).populate('group').populate('creator').populate('comments')
+  .exec(function(err, event){
     res.send(event);
   });
 });
@@ -30,7 +31,6 @@ router.get('/:id', function(req, res){
 //   "user_id": "55c3b0f7260e1c7acfa096ee"
 // }
 
-// 55c3b1eb2ff3fdbad0c3e152
 router.post('/', function(req, res) {
 
   var data = req.body;

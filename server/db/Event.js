@@ -5,6 +5,10 @@ var EventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  votes: {
+    type: Number,
+    default: 0
+  },
   group: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Group'

@@ -1,21 +1,18 @@
-var seeder = require('mongoose-seeder');
-var data = require('./data.json');
+var seeder    = require('mongoose-seeder');
+var mongoose  = require('mongoose'); 
+var Q         = require('q'); 
 
-var mongoose = require( 'mongoose' ); 
-var Q = require('q'); 
+var Comment   = require('./Comment');
+var Event     = require('./Event');
+var User      = require('./User');
+var Group     = require('./Group');
 
-var Comment = require('./Comment');
-var Event = require('./Event');
-var User = require('./User');
-var Group = require('./Group');
+var data      = require('./data.json');
 
 var dbURI = 'mongodb://localhost/electevent'; 
 
 // Create the database connection 
 var db = mongoose.connect(dbURI); 
-
-var group1Id;
-var event1Id;
 
 mongoose.connection.on('connected', function () {  
   console.log('Seeding DB');

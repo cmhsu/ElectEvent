@@ -16,7 +16,8 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res){
   var group_id = req.params.id;
-  Group.findById(group_id, function(err, group){
+  Group.findById(group_id).populate('events').populate("members")
+  .exec(function(err, group){
     res.send(group);
   });
 });
@@ -26,8 +27,6 @@ router.get('/:id', function(req, res){
 //   "groupname": "Best Group",
 //   "user_id": "55c3b0f7260e1c7acfa096ee"   // user_id is the id of group creator
 // }
-
-// 55c3b14b0ae922f4cfd97dac
 
 // on group create, add that group id to the user's groups array property
 router.post('/', function(req, res) {
