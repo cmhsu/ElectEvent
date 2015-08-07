@@ -1,9 +1,11 @@
-app.controller('groupCtrl', ['$scope', '$routeParams', '$stateParams', 'getGroups', function ($scope, $routeParams, $stateParams, getGroups) {
-  var userId = $routeParams; // need to fill this out
-  $scope.meow = userId;
+app.controller('groupCtrl', ['$scope', '$stateParams', 'getGroups', function ($scope, $stateParams, getGroups) {
+  console.log($stateParams);
 
-  getGroups.getGroup($routeParams.id).then(function (data) {
+  getGroups.getGroup($stateParams.id).then(function (response) {
+    var data = response.data;
+    console.log(data);
     $scope.groupname = data.groupname;
+    $scope.comments = data.comments;
     $scope.events = data.events;
     $scope.members = data.members;
   });
