@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
     
 });
 
-// Expect to receive an object like:
+// Expect POST object like:
 // {
 //   "title": "Go to the Beach!!",
 //   "group_id": "55c3b14b0ae922f4cfd97dac",
@@ -33,9 +33,16 @@ router.post('/', function(req, res) {
     votes: 0
   },
   function(err, newEvent){
-    res.send(newEvent);
-  });
 
+    Group.findById(data.group_id, function(err, group){
+      group.events.push(newEvent._id);
+
+      group.save(function(err){
+        //updated group
+        res.send(newEvent);
+      });
+    });
+  });
 });
 
 module.exports = router;

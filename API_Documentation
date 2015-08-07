@@ -1,0 +1,161 @@
+API Documentation
+
+
+Routes:
+
+
+Users Route:
+
+  /api/users
+
+  GET Sample:
+
+  [
+    {
+      "_id": "55c3f6683d32a04be7c05f91",
+      "username": "andrew",
+      "__v": 1,
+      "groups": [
+        {
+          "_id": "55c3f6803d32a04be7c05f92",
+          "groupname": "Best Group",
+          "__v": 1,
+          "members": [
+            "55c3f6683d32a04be7c05f91"
+          ],
+          "events": [
+            "55c3f69e3d32a04be7c05f93"
+          ]
+        }
+      ]
+    }
+  ]
+
+  POST Sample:
+  {
+    username: "USERNAME"
+  }
+
+Groups Route
+
+  /api/groups
+
+  GET Sample:
+  [
+    {
+      "_id": "55c3f6803d32a04be7c05f92",
+      "groupname": "Best Group",
+      "__v": 1,
+      "members": [
+        {
+          "_id": "55c3f6683d32a04be7c05f91",
+          "username": "andrew",
+          "__v": 1,
+          "groups": [
+            "55c3f6803d32a04be7c05f92"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "_id": "55c3f69e3d32a04be7c05f93",
+          "title": "Go to the Beach!!",
+          "creator": "55c3f6683d32a04be7c05f91",
+          "group": "55c3f6803d32a04be7c05f92",
+          "description": "Waves, sun, fun, sharks!",
+          "__v": 1,
+          "comments": [
+            "55c3f6b43d32a04be7c05f94"
+          ]
+        }
+      ]
+    }
+  ]
+
+  POST Sample:
+   {
+     "groupname": "Best Group",
+     "user_id": "55c3b0f7260e1c7acfa096ee"   // user_id is the mongo_id of group creator
+   }
+
+Events Route
+
+  /api/events
+
+  GET Sample: 
+  [
+    {
+      "_id": "55c3f69e3d32a04be7c05f93",
+      "title": "Go to the Beach!!",
+      "creator": {
+        "_id": "55c3f6683d32a04be7c05f91",
+        "username": "andrew",
+        "__v": 1,
+        "groups": [
+          "55c3f6803d32a04be7c05f92"
+        ]
+      },
+      "group": {
+        "_id": "55c3f6803d32a04be7c05f92",
+        "groupname": "Best Group",
+        "__v": 2,
+        "members": [
+          "55c3f6683d32a04be7c05f91"
+        ],
+        "events": [
+          "55c3f69e3d32a04be7c05f93",
+          "55c3f73a3d32a04be7c05f95"
+        ]
+      },
+      "description": "Waves, sun, fun, sharks!",
+      "__v": 1,
+      "comments": [
+        "55c3f6b43d32a04be7c05f94"
+      ]
+    }
+  ]
+
+  POST Sample:
+  {
+    "title": "Go to the Beach!!",
+    "group_id": "55c3f17bc96e1174df2a711e", //Mongo ID of group associated with event
+    "description": "Waves, sun, fun, sharks!",
+    "user_id": "55c3f07ec96e1174df2a711d" //Mongo ID of user creating the event
+  }
+
+Comments Route:
+
+  GET Sample:
+  [
+    {
+      "_id": "55c3f6b43d32a04be7c05f94",
+      "content": "NO WAY! HATE BEACH! Why did I suggest this?",
+      "creator": {
+        "_id": "55c3f6683d32a04be7c05f91",
+        "username": "andrew",
+        "__v": 1,
+        "groups": [
+          "55c3f6803d32a04be7c05f92"
+        ]
+      },
+      "event": {
+        "_id": "55c3f69e3d32a04be7c05f93",
+        "title": "Go to the Beach!!",
+        "creator": "55c3f6683d32a04be7c05f91",
+        "group": "55c3f6803d32a04be7c05f92",
+        "description": "Waves, sun, fun, sharks!",
+        "__v": 1,
+        "comments": [
+          "55c3f6b43d32a04be7c05f94"
+        ]
+      },
+      "__v": 0
+    }
+  ]
+
+  POST Sample:
+  {
+    "content": "NO WAY! HATE BEACH! Why did I suggest this?",
+    "user_id": "55c3f6683d32a04be7c05f91", // ID of user posting the comment
+    "event_id": "55c3f69e3d32a04be7c05f93" // ID of user posting 
+  }
