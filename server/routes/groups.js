@@ -35,7 +35,6 @@ router.post('/', function(req, res) {
 
       user.groups.push(newGroup._id);
       user.save(function(err){
-        console.log("saved");
         // Respond with succesfully created group.
         res.send(newGroup);
       });
