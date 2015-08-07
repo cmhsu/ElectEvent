@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 var app  = angular
-  .module('stationarySalmonBestSalmonApp', ['ui.router']);
+  .module('stationarySalmonBestSalmonApp', ['ui.router', 'app.event']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
