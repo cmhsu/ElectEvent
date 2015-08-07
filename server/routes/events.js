@@ -31,7 +31,6 @@ router.get('/:id', function(req, res){
 //   "user_id": "55c3b0f7260e1c7acfa096ee"
 // }
 
-// 55c3b1eb2ff3fdbad0c3e152
 router.post('/', function(req, res) {
 
   var data = req.body;

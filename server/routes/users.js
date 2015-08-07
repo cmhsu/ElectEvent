@@ -4,12 +4,30 @@ var User       = require('./../db/User');
 
 // Return users
 router.get('/', function(req, res) {
-  User.find({}).populate('groups').populate('events')
+  User.find({}).populate('groups')
   .exec(function(err, users){
     res.json(users);
   });
     
 });
+
+
+// Car
+// .find()
+// .populate('partIds')
+// .exec(function(err, docs) {
+//   if(err) return callback(err);
+//   Car.populate(docs, {
+//     path: 'partIds.otherIds',
+//     model: 'Other'
+//   },
+//   function(err, cars) {
+//     if(err) return callback(err);
+//     console.log(cars); // This object should now be populated accordingly.
+//   });
+// });
+
+
 
 // Return specific user by ID
 

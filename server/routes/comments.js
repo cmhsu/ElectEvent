@@ -15,10 +15,12 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res){
   var comment_id = req.params.id;
-  Comment.findById(comment_id, function(err, comment){
+  Comment.findById(comment_id).populate('creator').populate('event')
+  .exec(function(err, comment){
     res.send(comment);
   });
 });
+
 // Expect POST object like:
 // {
 //   content: "Comment text",
