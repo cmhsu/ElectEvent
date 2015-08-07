@@ -1,8 +1,8 @@
 var express     = require('express');
-var router = express.Router();
-var Comment = require('./../db/Comment');
-var Event = require('./../db/Event');
-var User = require('./../db/User');
+var router      = express.Router();
+var Comment     = require('./../db/Comment');
+var Event       = require('./../db/Event');
+var User        = require('./../db/User');
 
 //Will return an array of comment models
 router.get('/', function(req, res) {

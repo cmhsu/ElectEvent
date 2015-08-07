@@ -1,6 +1,6 @@
-var express     = require('express');
-var router = express.Router();
-var User = require('./../db/User');
+var express    = require('express');
+var router     = express.Router();
+var User       = require('./../db/User');
 
 // Return users
 router.get('/', function(req, res) {
@@ -15,7 +15,8 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res){
   var user_id = req.params.id;
-  User.findById(user_id, function(err, user){
+  User.findById(user_id).populate('groups').populate('events')
+  .exec(function(err, user){
     res.send(user);
   });
 });
