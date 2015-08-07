@@ -31,7 +31,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('event', {
       url: '/event/:id',
-      templateUrl: '../views/event.html'
+      templateUrl: '../views/event.html',
+      controller: 'EventController'
     })
     .state('user', {
       url: '/user/:id',
