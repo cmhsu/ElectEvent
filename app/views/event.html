@@ -1,20 +1,21 @@
 <!-- event name -->
 <h1>{{ eventName }}</h1>
 <!-- group -->
-<p> Group: {{ group }}</p>
+<p> Group: <a ui-sref="group({id: data.group._id})">{{ group }}</a></p>
 <!-- creator -->
-<p>Posted by: {{ creator }}</p>
+<p>Posted by: <a ui-sref="user({id: data.creator._id})">{{ creator }}</a></p>
 <!-- description -->
-<p class="description">{{ eventDescription }}</p>
+<p class="description">Description: {{ eventDescription }}</p>
 <!-- votes -->
 <p class="votes">{{ votes }}</p>
 <!-- comment form -->
-<input type="text" placeholder="Add comment...">
-<input type="submit" value="Submit">
+<textarea class="form-control comment-input" rows="2" placeholder="Add comment..."></textarea>
+<input type="submit" value="Submit" class="btn btn-default"><br><br>
 <!-- comments -->
 <section class="comments">
+  <h4>Comments:</h4>
   <div class="comment" ng-repeat="comment in comments">
-    <span class="username">{{ comment.creator.username }}</span>
+    <span class="username">{{ comment.creator.username }}</span> <!--This line doesn't populate. comment.creator returns the ID. -->
     <span class="content">{{ comment.content }}</span>
   </div>
 </section>
