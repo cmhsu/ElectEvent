@@ -42,6 +42,7 @@ router.get('/:id', function(req, res){
 // Expect POST object like:
 // {
 //     "username": "andrew"
+//     "password": cats
 // }
 
 // 55c3b0f7260e1c7acfa096ee
@@ -51,12 +52,14 @@ router.post('/', function(req, res) {
   var data = req.body;
 
   var addUser = User.create({
-    username: data.username
+    username: data.username,
+    password: data.password
   },
   function(err, newUser){
+    if (err) res.send(err);
     res.send(newUser);
   });
-
 });
+
 
 module.exports = router;
