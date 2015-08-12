@@ -9,8 +9,8 @@
 <!-- votes -->
 <p class="votes">{{ votes }}</p>
 <!-- comment form -->
-<textarea class="form-control comment-input" rows="2" placeholder="Add comment..."></textarea>
-<input type="submit" value="Submit" class="btn btn-default"><br><br>
+<textarea class="form-control comment-input" rows="2" ng-model="comment_text" placeholder="Add comment..."></textarea>
+<input ng-click="postComment()" value="Submit" class="btn btn-default"><br><br>
 <!-- comments -->
 <section class="comments">
   <h4>Comments:</h4>
