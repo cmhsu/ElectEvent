@@ -19,6 +19,10 @@
         "group1": {
           "groupname": "Special Group",
           "members": ["->users.user1","->users.user2","->users.user3","->users.user4"]
+        },
+        "group2": {
+          "groupname": "Amazing Group",
+          "members": ["->users.user1","->users.user2","->users.user3","->users.user4"]
         }
     },
     "events":{
@@ -28,6 +32,12 @@
           "group": "->groups.group1",
           "description": "A fun BBQ at the beach.",
           "creator":"->users.user2"
+        },
+        "event2": {
+          "title": "Go Hiking",
+          "group": "->groups.group1",
+          "description": "A fun hike in the woods.",
+          "creator":"->users.user1"
         }
     },
     "comments":{

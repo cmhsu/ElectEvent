@@ -1,6 +1,6 @@
 var seeder    = require('mongoose-seeder');
-var mongoose  = require('mongoose'); 
-var Q         = require('q'); 
+var mongoose  = require('mongoose');
+var Q         = require('q');
 
 var Comment   = require('./Comment');
 var Event     = require('./Event');
@@ -9,21 +9,23 @@ var Group     = require('./Group');
 
 var data      = require('./data.json');
 
-var dbURI = 'mongodb://localhost/electevent'; 
+var dbURI = 'mongodb://localhost/electevent';
 
-// Create the database connection 
-var db = mongoose.connect(dbURI); 
+// Create the database connection
+var db = mongoose.connect(dbURI);
 
-mongoose.connection.on('connected', function () {  
+mongoose.connection.on('connected', function () {
   console.log('Seeding DB');
-  
+
   seeder.seed(data).then(function(dbData) {
     // store data
 
     // get group id to push to user.groups
     group1Id = dbData.groups.group1._id;
+    group2Id = dbData.groups.group2._id;
     // get group id to push to user.groups
     event1Id = dbData.events.event1._id;
+    event2Id = dbData.events.event2._id;
     // get comment id to push to event.comments
     comment1Id = dbData.comments.comment1._id;
 
@@ -36,12 +38,12 @@ mongoose.connection.on('connected', function () {
     // additonal reference links
 
     // Add group_ids to user.groups
-    
+
     var promises = [];
 
     promises.push(Q(User.find({}).exec(function(err, users){
       users.forEach(function(user) {
-        user.groups.push(group1Id);
+        user.groups.push(group1Id, group2Id);
         promises.push(Q(user.save()));
       });
     })));
@@ -49,7 +51,7 @@ mongoose.connection.on('connected', function () {
     // Add event_ids to groups.events
     promises.push(Q(Group.find({}).exec(function(err, groups){
       groups.forEach(function(group) {
-        group.events.push(event1Id);
+        group.events.push(event1Id, event2Id);
         promises.push(Q(group.save()));
       });
     })));
@@ -66,5 +68,5 @@ mongoose.connection.on('connected', function () {
       mongoose.connection.close();
     });
   });
-}); 
+});
 
