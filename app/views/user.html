@@ -1,7 +1,10 @@
-<h1>User View</h1>
+<h1>{{username}}'s Dashboard</h1>
 
-Username: {{username}}
+<p>Username: {{username}}</p>
 
-<div ng-repeat="group in groups" ui-sref="group({id: group._id})">
-  <div>Groupnames: {{group.groupname}}</div>
+<span>Groups:</span>
+<div ng-repeat="group in groups">
+  <a ui-sref="group({id: group._id})">{{group.groupname}}</a>
 </div>
+
+<!--<p>Comments:</p> -->

@@ -1,15 +1,17 @@
 <section>
-  <div>{{groupname}}</div>
+  <h1>{{groupname}}</h1>
   <div ng-repeat="event in events">
-    <div>{{event.title}}</div>
+    <div><a ui-sref="event({id: event._id})">{{event.title}}</a></div>
     <p>{{event.description}}</p>
-    <i>{{event.author}}</i>
+    <i>{{event.author}}</i>  <!-- This line doesn't populate. If you put event.creator, it only populates with the ID -->
     <div ng-repeat="comment in event.comments">
       <i>{{comment.creator}}</i>
       <p>{{comment.content}}</p>
     </div>
   </div>
+  <br>
+  <h4>Group Members:</h4>
   <div ng-repeat="member in members">
-    <p>{{member.username}}</p>
+    <p><a ui-sref="user({id: member._id})">{{member.username}}</a></p>
   </div>
 </section>
