@@ -9,13 +9,13 @@
 <!-- votes -->
 <p class="votes">{{ votes }}</p>
 <!-- comment form -->
-<textarea class="form-control comment-input" rows="2" placeholder="Add comment..."></textarea>
-<input type="submit" value="Submit" class="btn btn-default"><br><br>
+<textarea class="form-control comment-input" rows="2" ng-model="comment_text" placeholder="Add comment..."></textarea>
+<input ng-click="postComment()" value="Submit" class="btn btn-default"><br><br>
 <!-- comments -->
 <section class="comments">
   <h4>Comments:</h4>
   <div class="comment" ng-repeat="comment in comments">
-    <span class="username">{{ comment.creator.username }}</span> <!--This line doesn't populate. comment.creator returns the ID. -->
+    <span class="username">{{ comment.creator }}:</span> <!--This line doesn't populate. comment.creator returns the ID. -->
     <span class="content">{{ comment.content }}</span>
   </div>
 </section>
