@@ -19,7 +19,6 @@ var UserSchema = new mongoose.Schema({
 
 // TODO: save hashed user passwords
 // autogenerate hashed pword
-bcrypt.hash(password, salt, function(err, hash) {})
 User.pre('save', function (next) {
   var user = this;
 
