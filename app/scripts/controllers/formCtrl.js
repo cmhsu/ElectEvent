@@ -1,7 +1,7 @@
-app.controller('FormCtrl', ['$scope', function($scope) {
+app.controller('FormCtrl', ['$scope', 'FormService', function($scope, FormService) {
   $scope.user = {};
   $scope.signup = function() {
     var user = $scope.user;
-    alert('username ' + user.username + ' password ' + user.password);
+    FormService.signup(user);
   };
 }]);
