@@ -15,7 +15,7 @@
 <section class="comments">
   <h4>Comments:</h4>
   <div class="comment" ng-repeat="comment in comments">
-    <span class="username">{{ comment.creator.username }}</span> <!--This line doesn't populate. comment.creator returns the ID. -->
+    <span class="username">{{ comment.creator }}:</span> <!--This line doesn't populate. comment.creator returns the ID. -->
     <span class="content">{{ comment.content }}</span>
   </div>
 </section>
