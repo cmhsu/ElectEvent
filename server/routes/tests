@@ -1,0 +1,5 @@
+tests:
+should save user
+should hash password with salt
+should not save plaintext password
+should not modify existing user
