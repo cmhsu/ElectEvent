@@ -19,7 +19,7 @@ var UserSchema = new mongoose.Schema({
 
 // TODO: save hashed user passwords
 // autogenerate hashed pword
-User.pre('save', function (next) {
+UserSchema.pre('save', function (next) {
   var user = this;
 
   // if pword is not new or modified, exit fcn
@@ -28,21 +28,20 @@ User.pre('save', function (next) {
   }
 
   // gen salt
-  genSalt(SALT_WORK_FACTOR, function(err, salt) {
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
     if (err) {
       next(err);
     }
 
     // hash password
-    hash(user.password, salt, null, function(err, hash) {
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
       // save hashed password + salt
       user.password = hash;
       user.salt = salt;
       next();
     })
   });
-})
-
+});
 
 var User = mongoose.model('User', UserSchema);
 
