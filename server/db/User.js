@@ -11,9 +11,10 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  groups: [{ 
-      type : mongoose.Schema.Types.ObjectId, 
-      ref: 'Group' 
+  salt: String,
+  groups: [{
+      type : mongoose.Schema.Types.ObjectId,
+      ref: 'Group'
     }]
 });
 
