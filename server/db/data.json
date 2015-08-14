@@ -2,16 +2,20 @@
     "users": {
         "_model": "User",
         "user1": {
-            "username": "Andrew"
+            "username": "Andrew",
+            "password": "test123"
         },
         "user2": {
-            "username": "Mychael"
+            "username": "Mychael",
+            "password": "test123"
         },
         "user3": {
-            "username": "Sara"
+            "username": "Sara",
+            "password": "test123"
         },
         "user4": {
-            "username": "Corey"
+            "username": "Corey",
+            "password": "test123"
         }
     },
     "groups":{

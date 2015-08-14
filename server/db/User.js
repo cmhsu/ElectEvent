@@ -11,11 +11,13 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  salt: String,
   groups: [{
-      type : mongoose.Schema.Types.ObjectId,
-      ref: 'Group'
-    }]
+    type : mongoose.Schema.Types.ObjectId,
+    ref: 'Group'
+  }],
+  salt: {
+    type: String
+  }
 });
 
 // TODO: save hashed user passwords

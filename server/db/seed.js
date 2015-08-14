@@ -31,6 +31,7 @@ mongoose.connection.on('connected', function () {
 
   })
   .catch(function(err) {
+      console.log(err);
       throw err;
   })
   .then(function(){
