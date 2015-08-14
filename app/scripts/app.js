@@ -11,7 +11,7 @@
 var app  = angular
   .module('stationarySalmonBestSalmonApp', ['ui.router']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
     .state('home', {
@@ -53,4 +53,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '../views/login.html',
       controller: 'LogoutCtrl'
     });
-});
+}]);

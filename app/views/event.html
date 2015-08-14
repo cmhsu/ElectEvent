@@ -7,7 +7,10 @@
 <!-- description -->
 <p class="description">Description: {{ eventDescription }}</p>
 <!-- votes -->
-<p class="votes">{{ votes }}</p>
+<p class="votes">{{ votes }} votes &nbsp;
+  <i ng-click="upvote()" class="fa fa-thumbs-up fa-lg" ng-class="{voted: upvoters.indexOf(user_id) >= 0}"></i>
+  <i ng-click="downvote()" class="fa fa-thumbs-down fa-lg" ng-class="{voted: downvoters.indexOf(user_id) >= 0}"></i></p>
+
 <!-- comment form -->
 <form name="commentForm" novalidate>
   <textarea required class="form-control comment-input" rows="2" ng-model="comment_text" placeholder="Add comment..."></textarea>

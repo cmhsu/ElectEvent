@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
   .exec(function(err, comments){
     res.json(comments);
   });
-    
+
 });
 
 router.get('/:id', function(req, res){
@@ -36,14 +36,11 @@ router.post('/', function(req, res) {
     content: data.content,
     creator: data.user_id,
     event: data.event_id
-  }, 
+  },
   function(err, newComment){
     // Add the comment_id to the comments array in the events model
     Event.findById(data.event_id, function(err, event){
-      
-      console.log("found event: ", event);
       event.comments.push(newComment._id);
-
       event.save(function(err){
         //Saved!
         res.send(newComment);

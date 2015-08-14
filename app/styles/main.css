@@ -85,3 +85,11 @@ body {
 .comment-input {
   margin-bottom: 5px;
 }
+
+.fa {
+  color: black;
+}
+
+.voted {
+  color: blue;
+}

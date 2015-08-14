@@ -16,14 +16,21 @@ var EventSchema = new mongoose.Schema({
   description: {
     type: String
   },
-  comments: [{ 
-    type : mongoose.Schema.Types.ObjectId, 
-    ref: 'Comment' 
+  comments: [{
+    type : mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
   }],
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
+  upvoters: [{
+    type: String
+  }],
+  downvoters: [{
+    type: String
+  }]
+
 });
 
 var Event = mongoose.model('Event', EventSchema);
