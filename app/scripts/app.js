@@ -47,5 +47,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/signup',
       templateUrl: '../views/signup.html',
       controller: 'FormCtrl'
+    })
+    .state('logout', {
+      url: '/login',
+      templateUrl: '../views/login.html',
+      controller: 'LogoutCtrl'
     });
 });

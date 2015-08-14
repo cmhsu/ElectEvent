@@ -2,22 +2,30 @@
     "users": {
         "_model": "User",
         "user1": {
-            "username": "Andrew"
+            "username": "Andrew",
+            "password": "test123"
         },
         "user2": {
-            "username": "Mychael"
+            "username": "Mychael",
+            "password": "test123"
         },
         "user3": {
-            "username": "Sara"
+            "username": "Sara",
+            "password": "test123"
         },
         "user4": {
-            "username": "Corey"
+            "username": "Corey",
+            "password": "test123"
         }
     },
     "groups":{
         "_model": "Group",
         "group1": {
           "groupname": "Special Group",
+          "members": ["->users.user1","->users.user2","->users.user3","->users.user4"]
+        },
+        "group2": {
+          "groupname": "Amazing Group",
           "members": ["->users.user1","->users.user2","->users.user3","->users.user4"]
         }
     },
@@ -28,6 +36,12 @@
           "group": "->groups.group1",
           "description": "A fun BBQ at the beach.",
           "creator":"->users.user2"
+        },
+        "event2": {
+          "title": "Go Hiking",
+          "group": "->groups.group1",
+          "description": "A fun hike in the woods.",
+          "creator":"->users.user1"
         }
     },
     "comments":{

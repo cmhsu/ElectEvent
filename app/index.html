@@ -31,6 +31,9 @@
           <li ng-class="{active: isActive('/')}"><a ui-sref="home">Event Feed</a></li>
           <li ng-class="{active: isActive('/group')}"><a ui-sref="myGroups">My Groups</a></li>
           <li ng-class="{active: isActive('/user')}"><a ui-sref="user">User</a></li> <!--This needs to be edited to go to the signed-in user's page-->
+          <li ng-class="{active: isActive('/signup')}"><a ui-sref="signup">Sign up</a></li>
+          <li ng-class="{active: isActive('/login')}"><a ui-sref="login">Log in</a></li>
+          <li><a ui-sref="logout">Log out</a></li>
         </ul>
 
       </div>
@@ -55,7 +58,7 @@
 <script src="scripts/services/eventsService.js"></script>
 <script src="scripts/services/EventService.js"></script>
 <script src="scripts/services/userService.js"></script>
-<script src="scripts/services/CommentService.js"></script>
+<script src="scripts/services/commentService.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/myGroupsCtrl.js"></script>
 <script src="scripts/controllers/eventFeedCtrl.js"></script>
@@ -63,6 +66,7 @@
 <script src="scripts/controllers/userCtrl.js"></script>
 <script src="scripts/controllers/event.js"></script>
 <script src="scripts/controllers/formCtrl.js"></script>
+<script src="scripts/controllers/logoutCtrl.js"></script>
 <script src="scripts/services/formService.js"></script>
 
 </body>
