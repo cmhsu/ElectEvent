@@ -1,7 +1,11 @@
 app
-  .controller('LogoutCtrl', ['$scope', function ($scope) {
+  .controller('LogoutCtrl', ['$scope','$cookies','$location',
+   function ($scope, $cookies, $location) {
     $scope.logout = function() {
-      //Add session logout code here.
+      // Delete session information
+      $cookies.remove('token');
+      $cookies.remove('user'); 
+      $location.path('/login');     
     };
     $scope.logout();
   }]);
