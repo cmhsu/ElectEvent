@@ -55,4 +55,14 @@ router.post('/', function(req, res) {
   });
 });
 
+router.put('/', function(req, res) {
+  var id = req.body._id;
+  Event.findByIdAndUpdate(id, req.body, function(err) {
+    if (err) {
+      return res.send(500, err);
+    }
+  });
+  res.send(req.body);
+});
+
 module.exports = router;

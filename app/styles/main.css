@@ -85,3 +85,43 @@ body {
 .comment-input {
   margin-bottom: 5px;
 }
+
+.fa {
+  color: black;
+  font-size: 26px;
+}
+
+.voted {
+  color: #246c97;
+}
+
+.upvote-btns {
+  margin-top: 5px;
+  display: inline-block;
+  width: 80px;
+  float: left;
+}
+
+.event-info {
+  display: inline-block;
+  float: left;
+  width: 50%;
+}
+
+.fa-thumbs-up {
+  padding-left: 15px;
+  margin-bottom: 7px;
+}
+
+.votes {
+  margin-bottom: 6px;
+}
+
+.fa-thumbs-down {
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  resize: none;
+}
