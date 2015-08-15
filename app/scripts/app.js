@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 var app  = angular
-  .module('stationarySalmonBestSalmonApp', ['ui.router']);
+  .module('stationarySalmonBestSalmonApp', ['ui.router', 'ngCookies']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
@@ -41,7 +41,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
     .state('login', {
       url: '/login',
-      templateUrl: '../views/login.html'
+      templateUrl: '../views/login.html',
+      controller: 'loginCtrl'
     })
     .state('signup', {
       url: '/signup',
