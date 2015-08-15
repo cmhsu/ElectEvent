@@ -9,9 +9,11 @@
  * Main module of the application.
  */
 var app  = angular
-  .module('stationarySalmonBestSalmonApp', ['ui.router']);
+  .module('stationarySalmonBestSalmonApp', ['ui.router', 'ngCookies']);
 
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 
+  function($stateProvider, $urlRouterProvider, $httpProvider) {
+  
   $urlRouterProvider.otherwise('/');
   $stateProvider
     .state('home', {
@@ -41,7 +43,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     })
     .state('login', {
       url: '/login',
-      templateUrl: '../views/login.html'
+      templateUrl: '../views/login.html',
+      controller: 'loginCtrl'
     })
     .state('signup', {
       url: '/signup',
@@ -53,4 +56,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       templateUrl: '../views/login.html',
       controller: 'LogoutCtrl'
     });
+
+    // Send token with each HTTP request to server
+    $httpProvider.interceptors.push(['$q', '$location', '$cookies', 
+      function($q, $location, $cookies) {
+      return {
+          'request': function (config) {
+              config.headers = config.headers || {};
+              if ($cookies.get('token')) {
+                  config.headers.Authorization = 'Bearer ' + $cookies.get('token');
+              }
+              return config;
+          },
+          'responseError': function(response) {
+              if(response.status === 401 || response.status === 403) {
+                  $location.path('/signin');
+              }
+              return $q.reject(response);
+          }
+      };
+  }]);
 }]);

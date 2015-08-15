@@ -13,24 +13,6 @@ router.get('/', function(req, res) {
 
 });
 
-
-// Car
-// .find()
-// .populate('partIds')
-// .exec(function(err, docs) {
-//   if(err) return callback(err);
-//   Car.populate(docs, {
-//     path: 'partIds.otherIds',
-//     model: 'Other'
-//   },
-//   function(err, cars) {
-//     if(err) return callback(err);
-//     console.log(cars); // This object should now be populated accordingly.
-//   });
-// });
-
-
-
 // Return specific user by ID
 
 router.get('/:id', function(req, res){
