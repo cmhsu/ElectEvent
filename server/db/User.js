@@ -19,11 +19,8 @@ var UserSchema = new mongoose.Schema({
     }]
 });
 
-// TODO: create compare passwords fcn
 UserSchema.methods.comparePassword = function(submittedPassword) {
-  // defer promise until async comparison is made
   var deferred = Q.defer();
-  // get saved user password
   var storedPassword = this.password;
   bcrypt.compare(submittedPassword, storedPassword, function(err, matchResult) {
     if (err) {
@@ -37,8 +34,6 @@ UserSchema.methods.comparePassword = function(submittedPassword) {
 };
 
 
-// TODO: save hashed user passwords
-// autogenerate hashed pword
 UserSchema.pre('save', function (next) {
   var user = this;
 
