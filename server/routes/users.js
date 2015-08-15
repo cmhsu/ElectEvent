@@ -2,6 +2,7 @@ var express    = require('express');
 var router     = express.Router();
 var User       = require('./../db/User');
 var Q          = require('q');
+var jwt        = require('jwt-simple');
 
 // Return users
 router.get('/', function(req, res) {
@@ -74,7 +75,8 @@ router.post('/signup', function(req, res, next) {
     })
     .then(function(user) {
       // send response for created user
-      res.send(user);
+      var token  = jwt.encode(user, 'stationarySalmon');
+      res.send({token: token});
       next();
     })
     .fail(function (error) {
