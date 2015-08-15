@@ -2,6 +2,7 @@ app.controller('FormCtrl', ['$scope', 'FormService', '$location', function($scop
   $scope.user = {};
   $scope.signup = function() {
     var user = $scope.user;
+    console.log(user);
     FormService.signup(user).then(function() {
       $location.path('/');
     });
