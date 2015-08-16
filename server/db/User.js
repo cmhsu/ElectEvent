@@ -13,6 +13,7 @@ var UserSchema = new mongoose.Schema({
     required: true
   },
   salt: String,
+  token: String,
   groups: [{ 
       type : mongoose.Schema.Types.ObjectId, 
       ref: 'Group' 
