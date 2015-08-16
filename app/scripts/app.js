@@ -57,6 +57,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
       templateUrl: '../views/signup.html',
       controller: 'FormCtrl'
     })
+    .state('createEvent', {
+      url: '/createEvent',
+      templateUrl: '../views/createEvent.html',
+      controller: 'EventFormCtrl'
+    })
     .state('logout', {
       url: '/login',
       templateUrl: '../views/login.html',
