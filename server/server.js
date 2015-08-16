@@ -29,7 +29,10 @@ app.use('/api/users', usersRoute);
 app.use('/api/groups', auth.isAuthorized, groupsRoute);
 app.use('/api/comments', auth.isAuthorized, commentsRoute);
 
-app.listen(8000, function(){
+app.listen(8000, function(err) {
+  if (err) {
+    console.log(err);
+  }
   console.log("Listening on Port 8000");
 });
 

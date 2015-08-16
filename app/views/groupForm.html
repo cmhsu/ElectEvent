@@ -1,0 +1,8 @@
+<h1>Create New Group</h1>
+<div>
+  <form name="groupForm" ng-submit=submitForm(group.name) novalidate>
+    <input name="groupName" type="text" placeholder="Group Name" ng-minlength="3" ng-model="group.name" required>
+    <!-- HAVE TO ADD USER_ID AS SECOND ARGUMENT -->
+    <input type="submit" ng-disabled="groupForm.$invalid">
+  </form>
+</div>
