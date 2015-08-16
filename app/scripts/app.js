@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+
 var app  = angular
   .module('stationarySalmonBestSalmonApp', ['ui.router', 'ngCookies']);
 
@@ -30,6 +31,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
       url: '/group/:id',
       templateUrl: '../views/group.html',
       controller: 'groupCtrl'
+    })
+    .state('groupForm', {
+      url: '/createGroup',
+      templateUrl: '../views/groupForm.html',
+      controller: 'groupFormCtrl'
     })
     .state('event', {
       url: '/event/:id',
