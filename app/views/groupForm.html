@@ -7,5 +7,5 @@
     <!-- HAVE TO ADD USER_ID AS SECOND ARGUMENT -->
     <input type="submit" ng-disabled="groupForm.$invalid" class="btn btn-default">
   </form>
-  <p ng-show="groupForm.groupName.$error.minlength && groupForm.groupName.$touched">Group name must be 3 characters or longer.</p>
+  <p ng-show="groupForm.groupName.$invalid && groupForm.groupName.$touched">Group name must be 3 characters or longer.</p>
 </div>
