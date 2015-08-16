@@ -1,6 +1,7 @@
 app
-  .controller('userCtrl', ['$scope', 'UserService', '$location', '$stateParams', function($scope, UserService, $location, $stateParams) {
-    UserService.get($stateParams.id).then(function(response) {
+  .controller('userCtrl', ['$scope', 'UserService', '$location', '$stateParams','$cookies', 
+    function($scope, UserService, $location, $stateParams, $cookies) {
+    UserService.get($cookies.get('user_id')).then(function(response) {
       var data = response.data;
       $scope.username = data.username;
       $scope.groups = data.groups;
