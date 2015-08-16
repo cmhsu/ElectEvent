@@ -1,0 +1,20 @@
+<h2>Add Event:</h2>
+<form ng-submit="createEvent()">
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Event Name" ng-model="title" required>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control" ng-model="selectedGroup" ng-options="group.groupname for group in myGroups" required>
+      <option value="" disabled selected>Select a group</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <textarea rows="3" class="form-control" placeholder="Add event description" ng-model="description" required></textarea>
+  </div>
+  <!-- make sure user is tied to event creation -->
+  <input class="btn btn-default" type="submit" value="Submit">
+
+</form>
