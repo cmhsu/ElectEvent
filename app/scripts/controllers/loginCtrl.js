@@ -8,7 +8,7 @@ app
         password: $scope.password
       };
       UserService.login(user).then(function(response){
-        $cookies.put('user',user.username);
+        $cookies.put('user_id',response.data.user_id);
         $cookies.put('token',response.data.token);
         $location.path('/');
       });

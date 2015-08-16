@@ -3,19 +3,22 @@ var router     = express.Router();
 var User       = require('./../db/User');
 var Q          = require('q');
 var jwt        = require('jwt-simple');
+var auth       = require('./../utils/authenticate');
 
 // Return users
-router.get('/', function(req, res) {
-  User.find({}).populate('groups')
-  .exec(function(err, users){
-    res.json(users);
-  });
+// Uncomment only for testing
 
-});
+// router.get('/', function(req, res) {
+//   User.find({}).populate('groups')
+//   .exec(function(err, users){
+//     res.json(users);
+//   });
+
+// });
 
 // Return specific user by ID
 
-router.get('/:id', function(req, res){
+router.get('/:id', auth.isAuthorized, function(req, res){
   var user_id = req.params.id;
   User.findById(user_id).populate('groups').populate('events')
   .exec(function(err, user){
@@ -46,20 +49,22 @@ router.post('/signup', function(req, res, next) {
       } else {
         // else create user
         var create = Q.nbind(User.create, User);
+        var token = jwt.encode(Date.now(), 'stationarySalmon');
         // set up user object
         var newUser = {
           username: username,
-          password: password
+          password: password,
+          token: token
         };
         // return created user
         return create(newUser);
       }
     })
     .then(function(user) {
-      // send response for created user
-      var token  = jwt.encode(user, 'stationarySalmon');
-      res.send({token: token});
-      next();
+      res.json({
+        user_id: user._id,
+        token: user.token
+      });
     })
     .fail(function (error) {
       next(error);
@@ -79,12 +84,19 @@ router.post('/login', function(req, res, next) {
       } else {
         // return promise
         return user.comparePassword(password)
-          .then(function(user) {
-            if (user) {
-              var token = jwt.encode(user, 'stationarySalmon');
-              res.send({token: token});
+          .then(function(authenticated) {
+            if (authenticated) {
+              var token = jwt.encode(Date.now(), 'stationarySalmon');
+
+              user.update({'token': token}, function(err, raw){
+                res.json({
+                  user_id: user._id,
+                  token: token
+                });
+              });
             } else {
-              next();
+              // Bad login
+              res.sendStatus(401);
             }
           });
       }

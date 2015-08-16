@@ -2,6 +2,7 @@ var express     = require('express');
 var mongoose    = require('mongoose');
 var bodyParser  = require('body-parser');
 var db          = require('./db/db');
+var auth        = require('./utils/authenticate');
 
 // Load the models
 var Comment     = require('./db/Comment');
@@ -23,10 +24,10 @@ app.use(express.static(__dirname + '/../app'));
 app.use(bodyParser.json());
 
 // Define routes
-app.use('/api/events', eventsRoute);
+app.use('/api/events', auth.isAuthorized, eventsRoute);
 app.use('/api/users', usersRoute);
-app.use('/api/groups', groupsRoute);
-app.use('/api/comments', commentsRoute);
+app.use('/api/groups', auth.isAuthorized, groupsRoute);
+app.use('/api/comments', auth.isAuthorized, commentsRoute);
 
 app.listen(8000, function(){
   console.log("Listening on Port 8000");
