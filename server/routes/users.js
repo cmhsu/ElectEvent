@@ -8,13 +8,13 @@ var auth       = require('./../utils/authenticate');
 // Return users
 // Uncomment only for testing
 
-// router.get('/', function(req, res) {
-//   User.find({}).populate('groups')
-//   .exec(function(err, users){
-//     res.json(users);
-//   });
+router.get('/', function(req, res) {
+  User.find({}).populate('groups')
+  .exec(function(err, users){
+    res.json(users);
+  });
 
-// });
+});
 
 // Return specific user by ID
 
