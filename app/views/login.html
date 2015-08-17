@@ -1,5 +1,5 @@
 <h1>Login</h1>
-<form name="loginForm" novalidate class="login form-inline">
+<form name="loginForm" novalidate class="form-inline">
   <div class="form-group" ng-class="{'has-error': loginForm.username.$invalid && loginForm.username.$dirty}">
     <input name="username" type="text" class="form-control" placeholder="Username" ng-model="username" required> <!--setting ng-model here, without a controller or else validation won't work. If this interferes with anything, feel free to change the ng-model of username to another name. -->
   </div>
