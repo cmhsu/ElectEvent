@@ -1,6 +1,6 @@
 <div>
-  <button class="btn btn-default" ui-sref="groupForm">Create New Group</button><br><br>
-  <h3>My Groups</h3>
+  <h3 class="h3 inline-header">My Groups</h3><button class="btn btn-default pull-right" ui-sref="groupForm">Create New Group</button><br><br>
+
   <div class="list-group" ng-repeat="group in groups">
     <a class="list-group-item" ui-sref="group({id: group._id})">{{group.groupname}}</a>
   </div>
