@@ -1,18 +1,19 @@
 <!-- event name -->
-<h1>{{ eventName }}</h1>
+<h1>{{ event.title }}</h1>
 <div class="upvote-btns">
   <span ng-click="upvote()" class="fa fa-thumbs-up fa-lg" ng-class="{voted: upvoters.indexOf(user_id) >= 0}"></span><br>
-  <p class="votes">{{ votes }} votes</p>
+  <p class="votes">{{ event.votes }} votes</p>
   <span ng-click="downvote()" class="fa fa-thumbs-down fa-lg" ng-class="{voted: downvoters.indexOf(user_id) >= 0}"></span>
 </div>
 
 <!-- group -->
 <div class="event-info">
-  <p> Group: <a ui-sref="group({id: data.group._id})">{{ group }}</a></p>
+  <p> Group: <a ui-sref="group({id: data.group._id})">{{ event.group.groupname }}</a></p>
   <!-- creator -->
-  <p>Posted by: <a ui-sref="user({id: data.creator._id})">{{ creator }}</a></p>
+  <p>Posted by: <a ui-sref="user({id: data.creator._id})">{{ event.creator.username }}</a></p>
   <!-- description -->
-  <p class="description">Description: {{ eventDescription }}</p>
+  <p class="description">Description: {{ event.description }}</p>
+  <p class="datetime">When: {{ event.datetime }}</p>
 </div>
 
 <!-- comment form -->
@@ -24,7 +25,7 @@
 <!-- comments -->
 <section class="comments">
   <h4>Comments:</h4>
-  <div class="comment" ng-repeat="comment in comments">
+  <div class="comment" ng-repeat="comment in event.comments">
     <span class="username">{{ comment.creator }}:</span> <!--This line doesn't populate. comment.creator returns the ID. -->
     <span class="content">{{ comment.content }}</span>
   </div>
