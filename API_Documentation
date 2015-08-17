@@ -114,7 +114,8 @@ Events Route
       "comments": [
         "55c3f6b43d32a04be7c05f94"
       ]
-    }
+    },
+    "datetime": "Mon Aug 17 2015 11:39:49 GMT-0700 (PDT)"
   ]
 
   POST Sample:
@@ -122,7 +123,8 @@ Events Route
     "title": "Go to the Beach!!",
     "group_id": "55c3f17bc96e1174df2a711e", //Mongo ID of group associated with event
     "description": "Waves, sun, fun, sharks!",
-    "user_id": "55c3f07ec96e1174df2a711d" //Mongo ID of user creating the event
+    "user_id": "55c3f07ec96e1174df2a711d" //Mongo ID of user creating the event,
+    "datetime": "Mon Aug 17 2015 11:39:49 GMT-0700 (PDT)" // formatted date string is submitted
   }
 
 Comments Route:
