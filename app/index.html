@@ -15,37 +15,38 @@
 <body ng-app="stationarySalmonBestSalmonApp">
 
 <div class="container" ng-controller="MainCtrl">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+  <div class="row">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#/">ElectEvent</a>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/">ElectEvent</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="nav navbar-nav">
+            <li ng-class="{active: isActive('/')}"><a ui-sref="home">Event Feed</a></li>
+            <li ng-class="{active: isActive('/group')}"><a ui-sref="myGroups">My Groups</a></li>
+            <li ng-class="{active: isActive('/search')}"><a ui-sref="groupSearch">Search Groups</a></li>
+            <li ng-class="{active: isActive('/user')}"><a ui-sref="user({id: user_id})">User</a></li>
+            <li><a ui-sref="createEvent">Create Event</a></li>
+            <li ng-class="{active: isActive('/signup')}" ng-hide="token"><a ui-sref="signup">Sign up</a></li>
+            <li ng-class="{active: isActive('/login')}" ng-hide="token" ><a ui-sref="login">Log in</a></li>
+            <li><a ui-sref="logout" ng-hide="!token">Log out</a></li>
+          </ul>
+
+        </div>
+
       </div>
+    </nav>
 
-      <div class="collapse navbar-collapse" id="main-navbar">
-        <ul class="nav navbar-nav">
-          <li ng-class="{active: isActive('/')}"><a ui-sref="home">Event Feed</a></li>
-          <li ng-class="{active: isActive('/group')}"><a ui-sref="myGroups">My Groups</a></li>
-          <li ng-class="{active: isActive('/search')}"><a ui-sref="groupSearch">Search Groups</a></li>
-          <li ng-class="{active: isActive('/user')}"><a ui-sref="user({id: user_id})">User</a></li>
-          <li><a ui-sref="createEvent">Create Event</a></li>
-          <li ng-class="{active: isActive('/signup')}" ng-hide="token"><a ui-sref="signup">Sign up</a></li>
-          <li ng-class="{active: isActive('/login')}" ng-hide="token" ><a ui-sref="login">Log in</a></li>
-          <li><a ui-sref="logout" ng-hide="!token">Log out</a></li>
-        </ul>
-
-      </div>
-
-    </div>
-  </nav>
-
-  <div ui-view></div>
-
+    <div ui-view></div>
+  </div>
 </div>
 
 <!-- Bower Componenets -->
