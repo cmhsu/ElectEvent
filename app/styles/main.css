@@ -173,6 +173,10 @@ a:hover {
   display: inline;
 }
 
+.container-fluid {
+  width: 80%;
+}
+
 /*.container {*/
   /*margin-right: 20px;*/
   /*margin-left: 20px;*/
