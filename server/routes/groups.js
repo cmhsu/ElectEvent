@@ -22,6 +22,16 @@ router.get('/:id', function(req, res){
   });
 });
 
+router.put('/:id', function(req, res){
+  var group_id = req.params.id;
+  Group.findById(group_id, function (err, group) {
+    group.members.push(req.body._id);
+    group.save(function (err) {
+      res.send(group);
+    });
+  });
+});
+
 // Expect a POST object like:
 // {
 //   "groupname": "Best Group",
