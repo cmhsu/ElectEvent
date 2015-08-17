@@ -15,6 +15,7 @@ app
           if(events){
             events.forEach(function(event){
               apiCalls.push(EventService.get(event).then(function(result){
+                result.data.groupSize = group.members.length;
                 return result;
               }));
             });
