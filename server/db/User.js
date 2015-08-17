@@ -14,9 +14,9 @@ var UserSchema = new mongoose.Schema({
   },
   salt: String,
   token: String,
-  groups: [{ 
-      type : mongoose.Schema.Types.ObjectId, 
-      ref: 'Group' 
+  groups: [{
+      type : mongoose.Schema.Types.ObjectId,
+      ref: 'Group'
     }]
 });
 
@@ -40,6 +40,7 @@ UserSchema.pre('save', function (next) {
 
   // if pword is not new or modified, exit fcn
   if (!user.isModified('password')) {
+    next();
     return;
   }
 
