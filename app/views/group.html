@@ -1,6 +1,6 @@
 <section>
   <h1>{{groupname}}</h1>
-  <button ng-hide="isInGroup" ng-click="joinGroup()">Join Group</button>
+  <button class="btn btn-default" ng-hide="isInGroup" ng-click="joinGroup()">Join Group</button>
   <div ng-repeat="event in events">
     <div><a ui-sref="event({id: event._id})">{{event.title}}</a></div>
     <p>{{event.description}}</p>
