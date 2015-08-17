@@ -1,0 +1,12 @@
+<h1>Sign-up</h1>
+<form name="signupForm" novalidate class="signup form-inline" ng-submit="signup()">
+  <div class="form-group" ng-class="{'has-error': signupForm.username.$invalid && signupForm.username.$dirty}">
+    <input name="username" type="text" class="form-control" placeholder="Username" ng-model="user.username" required>
+  </div>
+  <div class="form-group" ng-class="{'has-error': signupForm.password.$invalid && signupForm.password.$touched}">
+    <input name="password" type="password" ng-minlength="6" class="form-control" placeholder="Password" ng-model="user.password" required>
+  </div>
+  <input type="submit" ng-disabled="signupForm.$invalid" class="btn btn-default" value="Submit" >
+  <p ng-show="signupForm.username.$invalid && signupForm.username.$dirty">Please enter a username.</p>
+  <p ng-show="signupForm.password.$error.minlength && signupForm.password.$touched">Password must be 6 characters or longer.</p>
+</form>

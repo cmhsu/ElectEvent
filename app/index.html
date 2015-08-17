@@ -1,39 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/main.css">
 
-  </head>
-  <body ng-app="stationarySalmonBestSalmonApp">
+</head>
+<body ng-app="stationarySalmonBestSalmonApp">
 
+<div class="container" ng-controller="MainCtrl">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
 
-    <div class="container">
-    <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
-    </div>
-
-    <div ui-view></div>
-    <a ui-sref="state1">state1</a>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/">ElectEvent</a>
       </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li ng-class="{active: isActive('/')}"><a ui-sref="home">Event Feed</a></li>
+          <li ng-class="{active: isActive('/group')}"><a ui-sref="myGroups">My Groups</a></li>
+          <li ng-class="{active: isActive('/user')}"><a ui-sref="user({id: user_id})">User</a></li>
+          <li><a ui-sref="createEvent">Create Event</a></li>
+          <li ng-class="{active: isActive('/signup')}" ng-hide="token"><a ui-sref="signup">Sign up</a></li>
+          <li ng-class="{active: isActive('/login')}" ng-hide="token" ><a ui-sref="login">Log in</a></li>
+          <li><a ui-sref="logout" ng-hide="!token">Log out</a></li>
+        </ul>
+
+      </div>
+
     </div>
+  </nav>
 
-    <!-- Bower Componenets -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <div ui-view></div>
 
-    <!-- App Scripts -->
+</div>
 
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
+<!-- Bower Componenets -->
 
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+
+<!-- App Scripts -->
+<script src="scripts/app.js"></script>
+
+<!-- Services -->
+<script src="scripts/services/groupService.js"></script>
+<script src="scripts/services/eventsService.js"></script>
+<script src="scripts/services/EventService.js"></script>
+<script src="scripts/services/userService.js"></script>
+<script src="scripts/services/commentService.js"></script>
+<script src="scripts/services/formService.js"></script>
+<script src="scripts/services/groupCreateService.js"></script>
+<script src="scripts/services/eventCreateService.js"></script>
+
+
+<!-- Controllers -->
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/myGroupsCtrl.js"></script>
+<script src="scripts/controllers/eventFeedCtrl.js"></script>
+<script src="scripts/controllers/groupCtrl.js"></script>
+<script src="scripts/controllers/userCtrl.js"></script>
+<script src="scripts/controllers/loginCtrl.js"></script>
+<script src="scripts/controllers/event.js"></script>
+<script src="scripts/controllers/formCtrl.js"></script>
+<script src="scripts/controllers/logoutCtrl.js"></script>
+<script src="scripts/controllers/groupFormCtrl.js"></script>
+<script src="scripts/controllers/eventFormCtrl.js"></script>
 </body>
 </html>
+
+

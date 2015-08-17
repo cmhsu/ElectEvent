@@ -1,0 +1,32 @@
+<!-- event name -->
+<h1>{{ eventName }}</h1>
+<div class="upvote-btns">
+  <span ng-click="upvote()" class="fa fa-thumbs-up fa-lg" ng-class="{voted: upvoters.indexOf(user_id) >= 0}"></span><br>
+  <p class="votes">{{ votes }} votes</p>
+  <span ng-click="downvote()" class="fa fa-thumbs-down fa-lg" ng-class="{voted: downvoters.indexOf(user_id) >= 0}"></span>
+</div>
+
+<!-- group -->
+<div class="event-info">
+  <p> Group: <a ui-sref="group({id: data.group._id})">{{ group }}</a></p>
+  <!-- creator -->
+  <p>Posted by: <a ui-sref="user({id: data.creator._id})">{{ creator }}</a></p>
+  <!-- description -->
+  <p class="description">Description: {{ eventDescription }}</p>
+</div>
+
+<!-- comment form -->
+<form name="commentForm" class="commentForm" novalidate>
+  <textarea required class="form-control comment-input" rows="2" ng-model="comment_text" placeholder="Add comment..."></textarea>
+  <input ng-disabled="commentForm.$invalid" ng-click="postComment()" value="Submit" class="btn btn-default"><br><br>
+</form>
+
+<!-- comments -->
+<section class="comments">
+  <h4>Comments:</h4>
+  <div class="comment" ng-repeat="comment in comments">
+    <span class="username">{{ comment.creator }}:</span> <!--This line doesn't populate. comment.creator returns the ID. -->
+    <span class="content">{{ comment.content }}</span>
+  </div>
+</section>
+

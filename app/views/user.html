@@ -1,0 +1,10 @@
+<h1>{{username}}'s Dashboard</h1>
+
+<p>Username: {{username}}</p>
+
+<span>Groups:</span>
+<div ng-repeat="group in groups">
+  <a ui-sref="group({id: group._id})">{{group.groupname}}</a>
+</div>
+
+<!--<p>Comments:</p> -->
