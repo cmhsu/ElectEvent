@@ -8,6 +8,7 @@ app.controller('EventController', ['$scope', 'EventService', 'UserService', 'Com
         $scope.event = {};
         $scope.event = data;
         $scope.user_id = $cookies.get('user_id');
+
       })
       .then(function(){
         $scope.event.comments.forEach(function(comment){
@@ -19,7 +20,7 @@ app.controller('EventController', ['$scope', 'EventService', 'UserService', 'Com
     };
 
     $scope.postComment = function(){
-      var event_id = $scope.event._id;
+      var event_id = $stateParams.id;
       var comment_text = $scope.comment_text;
 
       // Don't submit unless the user has actually written a comment
@@ -29,10 +30,8 @@ app.controller('EventController', ['$scope', 'EventService', 'UserService', 'Com
           "user_id": $scope.user_id,
           "event_id": event_id
         };
-        console.log(comment);
 
         CommentService.post(comment).then(function(data){
-          console.log(data);
           $scope.comment_text = '';
           populateEventData();
         });
