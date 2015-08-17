@@ -29,8 +29,11 @@ var EventSchema = new mongoose.Schema({
   }],
   downvoters: [{
     type: String
-  }]
-
+  }],
+  datetime: {
+    type: Date,
+    required: true
+  }
 });
 
 var Event = mongoose.model('Event', EventSchema);

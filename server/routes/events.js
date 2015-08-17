@@ -40,7 +40,8 @@ router.post('/', function(req, res) {
     creator: data.user_id,
     group: data.group_id,
     description: data.description,
-    votes: 0
+    votes: 0,
+    datetime: data.datetime
   },
   function(err, newEvent){
 
