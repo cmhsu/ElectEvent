@@ -32,6 +32,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
       templateUrl: '../views/group.html',
       controller: 'groupCtrl'
     })
+    .state('groupSearch', {
+      url: '/search',
+      templateUrl: '../views/groupSearch.html',
+      controller: 'groupSearch'
+    })
     .state('groupForm', {
       url: '/createGroup',
       templateUrl: '../views/groupForm.html',
