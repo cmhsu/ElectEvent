@@ -3,6 +3,7 @@ app.service('CreateEvent', ['$http', function($http) {
     return $http.post('api/events/', newEvent)
       .then(function (response) {
         console.log('successfully added event');
+        return response;
       }, function (response) {
         console.log('failed to add event');
       });
