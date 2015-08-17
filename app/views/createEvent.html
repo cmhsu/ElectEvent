@@ -1,8 +1,8 @@
 <h2>Add Event:</h2>
-<form ng-submit="createEvent()">
+<form name="addEventForm" novalidate ng-submit="createEvent()">
 
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Event Name" ng-model="title" required>
+  <div class="form-group" ng-class="{'has-error': addEventForm.name.$invalid && addEventForm.name.$touched}">
+    <input type="text" name="name" class="form-control" placeholder="Event Name" ng-model="title" ng-minlength="3" required>
   </div>
 
   <div class="form-group">
@@ -11,10 +11,11 @@
     </select>
   </div>
 
-  <div class="form-group">
-    <textarea rows="3" class="form-control" placeholder="Add event description" ng-model="description" required></textarea>
+  <div class="form-group" ng-class="{'has-error': addEventForm.description.$invalid && addEventForm.description.$touched}">
+    <textarea rows="3" name="description" class="form-control" placeholder="Add event description" ng-model="description" ng-minlength="3" required></textarea>
   </div>
   <!-- make sure user is tied to event creation -->
-  <input class="btn btn-default" type="submit" value="Submit">
-
+  <input class="btn btn-default" ng-disabled="addEventForm.$invalid" type="submit" value="Submit">
+  <p ng-show="addEventForm.name.$invalid && addEventForm.name.$touched">Event name must be 3 characters or longer.</p>
+  <p ng-show="addEventForm.description.$invalid && addEventForm.description.$touched">Description must be 3 characters or longer.</p>
 </form>

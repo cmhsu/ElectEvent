@@ -1,6 +1,6 @@
 app
-  .controller('loginCtrl', ['$scope', 'UserService', '$location', '$cookies', '$rootScope',
-    function($scope, UserService, $location, $cookies, $rootScope) {
+  .controller('loginCtrl', ['$scope', 'UserService', '$location', '$cookies', '$rootScope', '$window',
+    function($scope, UserService, $location, $cookies, $rootScope, $window) {
 
     $scope.login = function(){
       var user = {
@@ -12,6 +12,7 @@ app
         $cookies.put('token',response.data.token);
         $rootScope.token = response.data.token;
         $location.path('/');
+        $window.location.reload();
       });
     };
 
