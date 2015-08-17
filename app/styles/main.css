@@ -125,3 +125,7 @@ body {
 textarea {
   resize: none;
 }
+
+.winner {
+  color: green;
+}

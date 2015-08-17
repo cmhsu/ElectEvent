@@ -4,6 +4,7 @@ app.controller('EventController', ['$scope', 'EventService', 'UserService', 'Com
     var populateEventData = function(){
       EventService.get($stateParams.id).then(function(response) {
         var data = response.data;
+        data.groupSize = data.group.members.length;
         $scope.event = {};
         $scope.event = data;
         $scope.user_id = $cookies.get('user_id');
