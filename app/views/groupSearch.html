@@ -1,0 +1,6 @@
+<h1>Find A Group</h1>
+<input type="text" ng-model="searchText"/>
+<div ng-repeat="groupItem in groups | filter:searchText">
+  <a ui-sref="group({id: groupItem._id})">{{groupItem.groupname}}</a>
+  <p>{{groupItem.members.length}} members</p>
+</div>
