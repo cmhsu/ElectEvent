@@ -2,7 +2,7 @@
   <h1>{{data.groupname}}</h1>
   <button class="btn btn-default" ng-hide="isInGroup" ng-click="joinGroup()">Join Group</button>
   <br>
-  <div class="list-group" ng-repeat="event in data.events" ng-class="{'winner': (event.votes / event.groupSize > .6)}">
+  <div class="list-group" ng-repeat="event in data.events | orderBy: '+datetime'">
     <table class="event-table">
       <tr>
         <td><strong>Event Name:</strong></td>
