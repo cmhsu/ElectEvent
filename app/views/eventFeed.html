@@ -1,6 +1,6 @@
 <section>
   <h1>Event Feed</h1>
-  <div class="event-feed" ng-repeat="event in events" ng-class="{'winner': (event.votes / event.groupSize > .6)}">
+  <div class="event-feed round-edge" ng-repeat="event in events | orderBy: '+datetime'" ng-class="{'winner': (event.votes / event.groupSize > .6)}">
     <table class="event-table">
     <tr>
       <td><strong>Event Name:</strong></td> 
