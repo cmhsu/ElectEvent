@@ -1,12 +1,28 @@
-# stationary-salmon-best-salmon
+# Event Elect
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+## Heading ##
+  ElectEvent.
 
-## Build & development
+## Sub-Heading ##
+  Provide a convenient way of event planning with people who have similar interests.
 
-Run `grunt` for building and `grunt serve` for preview.
+## Summary ##
+  Propose and coordinate group activities with your friends. At a glance see what's coming up and most popular.
 
-## Testing
+## Problem ##
+  Lack of ways people have to coordinate activities with different friend groups.
 
-Running `grunt test` will run the unit tests with karma.
+## Solution ##
+  Users can now have an input in what events they want to go to. Users can see popular events across all activity groups.
+
+## Quote from You ##
+  ElectEvent provides a way to do all the things with all the peoples.
+
+## How to Get Started ##
+  Sign up, join groups, propose events. Vote events, see events, do events.
+
+## Customer Quote ##
+  Before ElectEvent I did nothing, now with ElectEvent I have friends!
+
+## Closing and Call to Action ##
+  Sign up today, and start joining groups and going to events!
